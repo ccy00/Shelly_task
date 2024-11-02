@@ -1,4 +1,4 @@
-import { repository } from "../../../application/webhook/WebhookRepository";
+import { repository } from "../../../application/webhook/webhook-repository";
 import { callWekhook } from "../../../application/worker/worker";
 
 export async function POST({ request }) {

@@ -1,5 +1,5 @@
 // src/routes/api/webhook.js
-import { repository } from '../../../application/webhook/WebhookRepository';
+import { repository } from '../../../application/webhook/webhook-repository';
 import { json, text } from '@sveltejs/kit';
 export async function GET() {
     return new Response(JSON.stringify(await repository.getWebhookList()), {

@@ -1,4 +1,4 @@
-## Start Project
+## Start
 
 ```bash
 npm install
@@ -11,3 +11,13 @@ npm run dev -- --open
 
 ## Project structure
 
+```
+project/
+├ src/
+│ ├ application/    - core code
+│ │ └ webhook/
+│ │ └ worker/
+│ ├ routes/
+│ │ └ api/    - backend restful api
+└ └ └ views/    - frontend page
+```
