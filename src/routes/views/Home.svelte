@@ -72,10 +72,9 @@
       id=webhookId
     }
 
-    function closeDTriggerFunction(event:any)
+    function closeDTriggerFunction()
     {
-      showTrigger=false 
-      alert('Call Webhook:  '+event.detail)
+      showTrigger=false
     }
 </script>
 

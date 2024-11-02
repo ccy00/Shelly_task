@@ -27,7 +27,7 @@
   };
   function save() {
     console.log(100, urlStr);
-    formData.urlList = urlStr.split(",");
+    formData.urlList = urlStr.split("\n");
     console.log("formData", formData);
     dispatch("save", formData);
   }
@@ -46,13 +46,13 @@
         ...info,
         urlList: list,
       };
-      urlStr = list.join(",");
+      urlStr = list.join("\n");
     }
   }
 </script>
 
 <div>
-  <Modal isOpen={isShow} {toggle}>
+  <Modal isOpen={isShow} {toggle} size="lg">
     <div class="title">{title} webhook</div>
     <ModalBody>
       <div class="bodyLayout">
@@ -69,7 +69,7 @@
           <span class="urlLabel">Url:</span>
           <textarea name="" id="" bind:value={urlStr}></textarea>
         </div>
-        <div class="tips">Please use commas to separate different URLs.</div>
+        <div class="tips">Please enter each URL on a new line.</div>
       </div>
     </ModalBody>
     <ModalFooter>
@@ -95,7 +95,7 @@
   }
   .bodyLayout input[type="text"],
   .bodyLayout textarea {
-    width: 300px;
+    width: 450px;
     padding: 5px 10px;
     border-radius: 5px;
     box-shadow: 0 1px 7px 0 #20212447;

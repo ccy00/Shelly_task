@@ -11,19 +11,20 @@
     const dispatch = createEventDispatcher();
     export let showTrigger: boolean = false; 
     export let id:String; 
-    const toggle = () => {
+    const cancel = () => {
       if (showTrigger) {
         dispatch("closeDTrigger");
       }
     };
-    function save() {
+    function trigger() {
         fetch("/api/trigger", {
          method: 'POST',
         body: JSON.stringify({ id, params : JSON.parse(params) }),
       })
         .then((response) => response.json())
         .then((data) => {
-            dispatch("closeDTrigger",data);  
+            alert('Call Webhook:  \n' + data.join("\n"))
+            dispatch("closeDTrigger");
         });
     }
     let params='{ "token": "" }'
@@ -34,7 +35,7 @@
   </script>
   
   <div>
-    <Modal isOpen={showTrigger} {toggle}>
+    <Modal isOpen={showTrigger} {cancel}>
       <div class="title">Edit Params</div>
       <ModalBody>
         <div class="bodyLayout">
@@ -45,8 +46,8 @@
         </div>
       </ModalBody>
       <ModalFooter>
-        <Button color="primary" on:click={save}>Save</Button>
-        <Button color="secondary" on:click={toggle}>Cancel</Button>
+        <Button color="primary" on:click={trigger}>Trigger Webhook</Button>
+        <Button color="secondary" on:click={cancel}>Cancel</Button>
       </ModalFooter>
     </Modal>
   </div>
